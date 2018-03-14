@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xufq.sys.result;
+package com.xufq.common.result;
 
 import java.util.List;
 

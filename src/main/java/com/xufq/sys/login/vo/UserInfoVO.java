@@ -3,7 +3,7 @@
  */
 package com.xufq.sys.login.vo;
 
-import com.xufq.sys.vo.BaseVO;
+import com.xufq.common.vo.BaseVO;
 
 /**
  * @author Administrator

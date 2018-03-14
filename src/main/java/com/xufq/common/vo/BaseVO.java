@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.xufq.sys.vo;
+package com.xufq.common.vo;
 
 import java.io.Serializable;
 

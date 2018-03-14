@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xufq.common.annotation.ControllerLog;
+import com.xufq.common.result.Result;
 import com.xufq.sys.login.vo.UserInfoVO;
-import com.xufq.sys.result.Result;
 
 /**
  * @author Administrator
