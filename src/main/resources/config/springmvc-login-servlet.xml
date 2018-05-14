@@ -12,13 +12,20 @@
     http://www.springframework.org/schema/aop 
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<context:component-scan base-package="com.xufq" />
+	<context:component-scan base-package="com.xufq.**.controller" />
 
 	<!-- 启动requestmapping注解 -->
 	<mvc:annotation-driven />
 
 	<!-- 启动spring-aop注解 -->
 	<aop:aspectj-autoproxy />
+	
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.xufq.common.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 	<!-- <mvc:resources location="/" mapping="/**/*.js"/> -->
 	<!-- <mvc:resources location="/" mapping="/**/*.css"/> -->
@@ -32,10 +39,4 @@
 	<!-- <property name="prefix" value="/webpage/page" /> -->
 	<!-- <property name="suffix" value=".html" /> -->
 	<!-- </bean> -->
-	<beans profile="dev">
-		<context:property-placeholder location="classpth:properties/dev/*.properties" />
-	</beans>
-	<beans profile="pro">
-		<context:property-placeholder location="classpth:properties/pro/*.properties" />
-	</beans>
 </beans>

@@ -39,6 +39,10 @@
 		</layout>
 	</appender>
 
+	<logger name="dao" level="DEBUG">
+		<appender-ref ref="stdout" />
+	</logger>
+
 	<springProfile name="dev">
 		<root level="debug">
 			<appender-ref ref="stdout" />

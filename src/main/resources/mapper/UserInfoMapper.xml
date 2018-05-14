@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xufq.sys.login.dao.UserInfoMapper">
+  <select id="selectUserInfo" parameterType="com.xufq.sys.login.vo.UserInfoVO" resultType="com.xufq.sys.login.entity.UserInfo">
+    SELECT
+	  t1.*
+	FROM
+		user_info t1
+	WHERE 1=1
+	<if test="userId != null and userId != ''">
+	AND t1.user_id = #{userId, jdbcType=VARCHAR}
+	</if>
+	<if test="userName != null and userName != ''">
+    AND t1.user_name = #{userName, jdbcType=VARCHAR}
+	</if>
+  </select>
+</mapper>

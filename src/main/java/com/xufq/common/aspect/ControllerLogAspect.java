@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.xufq.common.annotation.ControllerLog;
 
+
 @Aspect
 @Component
 public class ControllerLogAspect {
@@ -39,7 +40,7 @@ public class ControllerLogAspect {
 					logger.debug("请求参数：" + args[i].toString());
 				}
 			}
-			return point.proceed(); // 执行程序
+			return point.proceed();
 		} catch (Throwable throwable) {
 			throwable.printStackTrace();
 			return throwable.getMessage();

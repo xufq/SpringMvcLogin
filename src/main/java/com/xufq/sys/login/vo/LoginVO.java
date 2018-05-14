@@ -9,13 +9,11 @@ import com.xufq.common.vo.BaseVO;
  * @author Administrator
  *
  */
-public class UserInfoVO extends BaseVO {
+public class LoginVO extends BaseVO {
 
 	private String userId;
 	
 	private String password;
-	
-	private String userName;
 
 	/**
 	 * @return the userId
@@ -43,21 +41,6 @@ public class UserInfoVO extends BaseVO {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
-	}
-
-	/**
-	 * @param userName the userName to set
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	
+	}	
 	
 }
