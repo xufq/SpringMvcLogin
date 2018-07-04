@@ -23,6 +23,9 @@ public class Result<T> {
 	// 多条数据
 	private List<T> list;
 
+	// 列表总条数
+	private long total;
+
 	/**
 	 * 绑定成功消息
 	 * 
@@ -160,6 +163,21 @@ public class Result<T> {
 	 */
 	public void setList(List<T> list) {
 		this.list = list;
+	}
+
+	/**
+	 * @return the total
+	 */
+	public long getTotal() {
+		return total;
+	}
+
+	/**
+	 * @param total
+	 *            the total to set
+	 */
+	public void setTotal(long total) {
+		this.total = total;
 	}
 
 }

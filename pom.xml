@@ -22,6 +22,7 @@
 		<junit-version>4.12</junit-version>
 		<jedis-version>2.9.0</jedis-version>
 		<spring-session-data-redis-version>2.0.2.RELEASE</spring-session-data-redis-version>
+		<pagehelper-version>5.1.4</pagehelper-version>
 <!-- 		<spring-data-redis-version>2.0.6.RELEASE</spring-data-redis-version> -->
 <!-- 		<quartz.version>2.2.1</quartz.version> -->
 	</properties>
@@ -185,6 +186,12 @@
 			<artifactId>spring-session-data-redis</artifactId>
 			<version>${spring-session-data-redis-version}</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper-version}</version>
+        </dependency>
 
 		<!-- <dependency> -->
 		<!-- <groupId>org.springframework.data</groupId> -->

@@ -10,7 +10,7 @@ import com.xufq.sys.login.vo.UserInfoVO;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class LoginService {
+public class LoginServiceImpl {
 
 	@Autowired
 	private UserInfoMapper userInfoMapper;

@@ -20,7 +20,7 @@ import com.xufq.common.constants.CommonConstants;
 import com.xufq.common.result.Result;
 import com.xufq.common.utils.SessionUtil;
 import com.xufq.sys.login.entity.UserInfo;
-import com.xufq.sys.login.service.LoginService;
+import com.xufq.sys.login.service.LoginServiceImpl;
 import com.xufq.sys.login.vo.LoginVO;
 
 /**
@@ -32,7 +32,7 @@ import com.xufq.sys.login.vo.LoginVO;
 public class LoginController {
 
 	@Autowired
-	private LoginService loginService;
+	private LoginServiceImpl loginService;
 
 	@PostMapping("/login")
 	@ControllerLog(requestUrl = "/login")
