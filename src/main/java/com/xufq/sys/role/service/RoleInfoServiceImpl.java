@@ -3,6 +3,7 @@ package com.xufq.sys.role.service;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,6 @@ import com.xufq.common.utils.UUIDUtil;
 import com.xufq.sys.role.bo.RoleInfoBo;
 import com.xufq.sys.role.dao.RoleInfoMapper;
 import com.xufq.sys.role.entity.RoleInfo;
-import com.xufq.sys.role.vo.InsertRoleInfoVo;
 import com.xufq.sys.role.vo.QueryRoleInfoListVo;
 import com.xufq.sys.role.vo.QueryRoleInfoVo;
 import com.xufq.sys.role.vo.UpdateRoleInfoVo;
@@ -28,17 +28,21 @@ public class RoleInfoServiceImpl {
 
 	/**
 	 * 检索角色列表
-	 * @param param 用户名
+	 * 
+	 * @param param
+	 *            用户名
 	 * @return 角色列表
 	 */
 	public List<RoleInfoBo> selectRoleInfoList(QueryRoleInfoListVo param) {
 		PageHelper.startPage(param.getPage(), param.getLimit());
 		return mapper.selectRoleInfoList(param);
 	}
-	
+
 	/**
 	 * 检索角色信息
-	 * @param param 角色ID
+	 * 
+	 * @param param
+	 *            角色ID
 	 * @return 角色信息
 	 */
 	public RoleInfoBo selectRoleInfo(QueryRoleInfoVo param) {
@@ -46,23 +50,8 @@ public class RoleInfoServiceImpl {
 	}
 
 	/**
-	 * 插入角色信息
-	 * @param param
-	 * @return
-	 */
-	public int insertRoleInfo(InsertRoleInfoVo param) {
-
-		// 拷贝roleid和rolename
-		RoleInfo roleInfo = new RoleInfo();
-		BeanUtils.copyProperties(param, roleInfo);
-
-		roleInfo.setId(UUIDUtil.getUUID(true));
-		setEntityCreateInfo(roleInfo);
-		return mapper.insertSelective(roleInfo);
-	}
-	
-	/**
 	 * 更新角色信息
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -70,9 +59,33 @@ public class RoleInfoServiceImpl {
 		// 拷贝roleid和rolename
 		RoleInfo roleInfo = new RoleInfo();
 		BeanUtils.copyProperties(param, roleInfo);
-		
+		if (StringUtils.isEmpty(param.getId())) {
+			return insertRoleInfo(roleInfo);
+		} else {
+			return updateRoleInfo(roleInfo);
+		}
+
+	}
+
+	/**
+	 * 更新角色信息
+	 * @param roleInfo
+	 * @return
+	 */
+	private int updateRoleInfo(RoleInfo roleInfo) {
 		setEntityUpdateInfo(roleInfo);
 		return mapper.updateByPrimaryKeySelective(roleInfo);
+	}
+
+	/**
+	 * 登录角色信息
+	 * @param roleInfo
+	 * @return
+	 */
+	private int insertRoleInfo(RoleInfo roleInfo) {
+		setEntityCreateInfo(roleInfo);
+		roleInfo.setId(UUIDUtil.getUUID());
+		return mapper.insertSelective(roleInfo);
 	}
 
 	private void setEntityCreateInfo(RoleInfo roleInfo) {

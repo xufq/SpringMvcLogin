@@ -4,6 +4,15 @@ import java.util.UUID;
 
 public class UUIDUtil {
 
+
+	/**
+	 * 获得UUID(无中杠)
+	 * @return
+	 */
+	public static String getUUID() {
+		return getUUID(true);
+	}
+	
 	/**
 	 * 获得UUID
 	 * @param replaceFlag true：替换中杠 false：不替换中杠
